@@ -3,7 +3,8 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 dotenv.config({ path: './config.env' });
 
-
+const noteRouter = require('./routes/notesRouter');
+const userRouter = require('./routes/userRouter');
 
 const server = express();
 
@@ -28,7 +29,8 @@ server.get("/", (req, res) => {
   res.send("Hello World!!");
 });
 
-
+server.use('/users', userRouter);
+server.use('/notes', noteRouter);
 // PORT Connected
 const PORT = process.env.PORT;
 server.listen(PORT, () => {
