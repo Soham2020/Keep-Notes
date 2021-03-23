@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const cors = require('cors');
 dotenv.config({ path: './config.env' });
 
 const noteRouter = require('./routes/notesRouter');
@@ -24,6 +25,7 @@ mongoose.connect(DB, {
 
 
 server.use(express.json());
+server.use(cors());
 
 server.get("/", (req, res) => {
   res.send("Hello World!!");
