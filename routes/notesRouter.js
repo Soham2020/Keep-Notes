@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../middleware/auth');
-const notesApi = require('./notesApi');
+
+const noteController = require('./notesController');
 
 // // get notes router
 // router.get('/getNotes', auth, async (req, res) => {
@@ -32,12 +33,13 @@ const notesApi = require('./notesApi');
 // // delete a note router
 
 router.route('/')
-    .get(auth, notesApi.getNotes)
-    .post(auth, notesApi.createNote)
+
+    .get(auth, noteController.getNotes)
+    .post(auth, noteController.createNote)
 
 router.route('/:id')
-    .get(auth, notesApi.getNote)
-    .put(auth, notesApi.updateNote)
-    .delete(auth, notesApi.deleteNote)
+    .get(auth, noteController.getNote)
+    .put(auth, noteController.updateNote)
+    .delete(auth, noteController.deleteNote)
 
 module.exports = router;
