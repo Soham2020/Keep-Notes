@@ -9,14 +9,9 @@ const noteSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    userid: {
+    users_id : {
         type: String,
         required: true
-    },
-    name: {
-        type: String,
-        required: true,
-        unique: true
     }
 });
 
