@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../middleware/auth');
 
-const noteController = require('./notesController');
+const notesApi = require('./notesApi');
 
 // // get notes router
 // router.get('/getNotes', auth, async (req, res) => {
@@ -34,12 +34,12 @@ const noteController = require('./notesController');
 
 router.route('/')
 
-    .get(auth, noteController.getNotes)
-    .post(auth, noteController.createNote)
+    .get(auth, notesApi.getNotes)
+    .post(auth, notesApi.createNote)
 
 router.route('/:id')
-    .get(auth, noteController.getNote)
-    .put(auth, noteController.updateNote)
-    .delete(auth, noteController.deleteNote)
+    .get(auth, notesApi.getNote)
+    .put(auth, notesApi.updateNote)
+    .delete(auth, notesApi.deleteNote)
 
 module.exports = router;
