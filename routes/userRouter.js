@@ -11,20 +11,20 @@ router.get('/', (req, res) => {
 // User Registration router
 router.post('/register', async (req, res) => {
     try {
-        const { firstname, lastname, username, email, password } = req.body;
+        const { username, email, password } = req.body;
         const userRegister = await User.findOne({ email: email });
         if(userRegister) {
             return res.status(422).json({ msg: "User Already exists!!" })
         }else {
             const passHash = await bcrypt.hash(password, 12);
-            const newUer = new User ({
-                firstname: firstname,
-                lastname: lastname,
+            const newUser = new User ({
+                // firstname: firstname,
+                // lastname: lastname,
                 username: username,
                 email: email,
                 password: passHash
             });
-            await newUer.save();
+            await newUser.save();
             res.json({ msg: "Registration succesfull!!" });
         }
     }catch(err) {
@@ -53,7 +53,7 @@ router.post('/signin', async (req, res) => {
     }
 });
 // Token Verification
-router.get('/vtoken', async (req, res) => {
+router.get('/verify', async (req, res) => {
     try {
         const token = req.header("Authorization");
         if(!token) {
@@ -62,14 +62,21 @@ router.get('/vtoken', async (req, res) => {
         jwt.verify(token, process.env.TOKEN, async (err, verified) => {
             if(err) {
                 return res.send(false);
-            }else {
-                const user = await User.findById(verified.id);
-                if(!user) {
-                    return res.json(false);
-                }else {
-                    return res.json(true);
-                }
             }
+            // else {
+            //     const user = await User.findById(verified.id);
+            //     if(!user) {
+            //         return res.json(false);
+            //     }else {
+            //         return res.json(true);
+            //     }
+            // }
+            const user = await User.findById(verified.id)
+            if(!user)
+                return res.send(false);
+            console.log(user);
+
+            return res.send(true);
         })
     }catch(err) {
         return res.status(401).json({ msg: err.message });
