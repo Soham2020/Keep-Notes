@@ -26,7 +26,6 @@ function App() {
   }, []);
   return (
     <>
-      <h1>Gate-way Page</h1>
       {
         isLogin ? <Notes /> : <Login setIsLogin={setIsLogin} />
       }

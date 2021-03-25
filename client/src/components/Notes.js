@@ -1,9 +1,12 @@
+// hompage after login
 import React from 'react';
+import Navbar from './Navbar';
 
-export default function Notes () {
+export default function Notes ({ setIsLogin }) {
     return(
         <>
-            <h1>User Logged in to Notes Page</h1>    
+            <Navbar setIsLogin={ setIsLogin }/>   
+            <h1>User Logged in to Notes Page</h1> 
         </>
     )
 }
