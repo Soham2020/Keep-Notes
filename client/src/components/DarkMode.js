@@ -15,7 +15,7 @@ export default function DarkMode() {
         <>
             <ThemeProvider theme={theme}>
                 <CssBaseline>
-                    <Switch color="inherit" onChange={handleDarkMode} value={darkMode} />
+                    <Switch color="primary" onChange={handleDarkMode} value={darkMode} />
                 </CssBaseline>
             </ThemeProvider>
         </>

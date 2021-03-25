@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import DarkMode from './DarkMode';
+import Link from '@material-ui/core/Link'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,8 +21,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Nvabar() {
+export default function Navbar({ setIsLogin }) {
   const classes = useStyles();
+  const logOut = () => {
+    localStorage.clear();
+    setIsLogin(false);
+  }
 
   return (
     <div className={classes.root}>
@@ -33,8 +38,8 @@ export default function Nvabar() {
           <Typography variant="h6" className={classes.title}>
             Keep Notes
           </Typography>
-          <Button color="inherit">Add Note</Button>
-          <Button color="inherit">Sign out</Button>
+          <Button color="inherit"><Link href="/create" color="inherit">Add Note</Link></Button>
+          <Button color="inherit" onClick={logOut}>Sign out</Button>
           <DarkMode />
         </Toolbar>
       </AppBar>

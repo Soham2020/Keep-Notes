@@ -27,7 +27,7 @@ function App() {
   return (
     <>
       {
-        isLogin ? <Notes /> : <Login setIsLogin={setIsLogin} />
+        isLogin ? <Notes setIsLogin={setIsLogin} /> : <Login setIsLogin={setIsLogin} />
       }
     </>
   );
