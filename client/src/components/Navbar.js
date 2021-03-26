@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import NotesIcon from '@material-ui/icons/Notes';
 import DarkMode from './DarkMode';
 import Link from '@material-ui/core/Link'
 
@@ -33,13 +33,19 @@ export default function Navbar({ setIsLogin }) {
       <AppBar position="static" color="secondary">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
+            <NotesIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Keep Notes
+            <Link href="/" color="inherit">Keep Notes</Link>
           </Typography>
-          <Button color="inherit"><Link href="/create" color="inherit">Add Note</Link></Button>
-          <Button color="inherit" onClick={logOut}>Sign out</Button>
+          <Button color="inherit">
+            <Link href="/creation" color="inherit">
+              <Typography>Add Note</Typography>
+            </Link>
+          </Button>
+          <Button color="inherit" onClick={logOut}>
+            <Typography>Sign Out</Typography>
+          </Button>
           <DarkMode />
         </Toolbar>
       </AppBar>
