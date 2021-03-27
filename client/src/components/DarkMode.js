@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ThemeProvider, CssBaseline, createMuiTheme, Switch } from '@material-ui/core';
+import { ThemeProvider, CssBaseline, createMuiTheme } from '@material-ui/core';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
 
 export default function DarkMode() {
     const [ darkMode, setDarkMode ] = useState(false);
@@ -15,7 +16,7 @@ export default function DarkMode() {
         <>
             <ThemeProvider theme={theme}>
                 <CssBaseline>
-                    <Switch color="primary" onChange={handleDarkMode} value={darkMode} />
+                    <Brightness4Icon style={{ color: "black" }} onClick={handleDarkMode} value={darkMode} fontSize="large" />
                 </CssBaseline>
             </ThemeProvider>
         </>
