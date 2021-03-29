@@ -29,35 +29,42 @@ export default function Creation() {
     fontFamily: "BlinkMacSystemFont"
   };
   const btnStyle = {
-    margin: "15px auto"
+    margin: "15px auto",
+    color: "#f6ff9a",
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    transition: "0.6s",
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)'
   };
   return (
     <>
-      <Grid className={classes.card}>
-        <CardContent style={CardStyle}>
-          <TextField
-            label="Title"
-            placeholder="title"
-            fullWidth
-            required
-          ></TextField>
-          <TextField
-            rowsMax={3}
-            label="Details"
-            placeholder="details"
-            fullWidth
-            required
-          ></TextField>
-          <Button
-            variant="contained"
-            type="submit"
-            color="secondary"
-            style={btnStyle}
-          >
-            Submit
-          </Button>
-        </CardContent>
-      </Grid>
+      <form>
+        <Grid className={classes.card}>
+          <CardContent style={CardStyle}>
+            <TextField
+              label="Title"
+              placeholder="title"
+              fullWidth
+              required
+            ></TextField>
+            <TextField
+              label="Details"
+              placeholder="details"
+              fullWidth
+              required
+              multiline
+              rows={9}
+              rowsMax={10}
+            ></TextField>
+            <Button
+              variant="contained"
+              type="submit"
+              style={btnStyle}
+            >
+              Submit
+            </Button>
+          </CardContent>
+        </Grid>
+      </form>
     </>
   );
 }
