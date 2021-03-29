@@ -1,4 +1,8 @@
-import { Grid, CardContent, TextField, Button } from "@material-ui/core";
+import { useState } from 'react';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+
+import { Grid, CardContent, TextField, Button, Typography } from "@material-ui/core";
 import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles({
@@ -20,6 +24,45 @@ const useStyles = makeStyles({
 });
 
 export default function Creation() {
+
+  // connection with backend
+  const [create, setCreate] = useState({
+    title: "",
+    content: ""
+  });
+
+  const onChangeVal = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    // console.log(name, value);
+    setCreate({ ...create, [name]: value });
+  }
+
+  const history = useHistory();
+
+  const makeUp = async (e) => {
+    e.preventDefault();
+    try{
+      const token = localStorage.getItem('tokenStore');
+      if(token){
+        const { title, content } = create;
+        const newCreate = {
+          title, 
+          content
+        }
+        await axios.post('/notes', newCreate, {
+          headers: { Authorization: token }
+        });
+        return history.push('/')
+      }
+    }catch(err) {
+      console.log("error")
+    }
+  }
+
+
+
+  // styles
   const classes = useStyles();
   const CardStyle = {
     padding: 10,
@@ -37,23 +80,36 @@ export default function Creation() {
   };
   return (
     <>
-      <form>
+      <Typography 
+        align="center"
+        variant="h4"
+        color="secondary"
+        style={{ marginTop: "20px" }}
+      >
+        Create your Note </Typography>
+      <form onSubmit={makeUp} autoComplete="off">
         <Grid className={classes.card}>
           <CardContent style={CardStyle}>
             <TextField
+              name="title"
               label="Title"
               placeholder="title"
               fullWidth
               required
+              value={create.title}
+              onChange={onChangeVal}
             ></TextField>
             <TextField
-              label="Details"
-              placeholder="details"
+              name="content"
+              label="content"
+              placeholder="content"
               fullWidth
               required
               multiline
               rows={9}
               rowsMax={10}
+              value={create.content}
+              onChange={onChangeVal}
             ></TextField>
             <Button
               variant="contained"
