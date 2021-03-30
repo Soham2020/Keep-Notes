@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import {
     Grid, 
     CardContent,
@@ -69,19 +70,18 @@ export default function Home () {
 
     return (
         <>
-            <h1 style={{ marginLeft: "20px" }}>Get your Notes...</h1>
+            <h1 style={{ marginLeft: "20px", textAlign: "center" }}>Get your Notes...</h1>
             <Grid className={classes.card}>
                 {
                     notes.map((note) => (
                         <CardContent key={note._id} style={CardStyle}>
+                            <Link to={`edit/${note._id}`} style={{ marginLeft: "14rem" }}  >Edit</Link>
                             <Typography variant="subtitle2">Title:</Typography>
                             <Typography variant="h5" style={{marginRight:"40px"}}> {note.title}</Typography><br/>
                             <Typography variant="subtitle2">Content:</Typography>
                             <Typography paragraph variant="h6">{note.content}</Typography>
-                            {/* <Button color="primary" size="large" onClick={() => {
-                                deleteNote(note._id)
-                            }}>X</Button> */}
-                            <DeleteIcon color="primary" fontSize="large" onClick={() => {
+                            <DeleteIcon color="primary" fontSize="default" style={{ marginTop: "20px", 
+                            marginRight: "13rem"}} onClick={() => {
                                 deleteNote(note._id)
                             }}></DeleteIcon>
                         </CardContent>
