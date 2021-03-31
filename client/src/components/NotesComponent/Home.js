@@ -75,7 +75,7 @@ export default function Home () {
                 {
                     notes.map((note) => (
                         <CardContent key={note._id} style={CardStyle}>
-                            <Link to={`edit/${note._id}`} style={{ marginLeft: "14rem" }}  >Edit</Link>
+                            <Link to={`edit/${note._id}`} style={{ marginLeft: "14rem", color: "white" }}  >Edit</Link>
                             <Typography variant="subtitle2">Title:</Typography>
                             <Typography variant="h5" style={{marginRight:"40px"}}> {note.title}</Typography><br/>
                             <Typography variant="subtitle2">Content:</Typography>

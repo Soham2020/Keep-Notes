@@ -23,7 +23,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function Edit({ req }) {
+export default function Edit({ match }) {
 
   // connection with backend
   const [create, setCreate] = useState({
@@ -37,8 +37,8 @@ export default function Edit({ req }) {
   useEffect(() => {
     const getNote = async () => {
         const token = localStorage.getItem('tokenStore');
-        if( req.params.id ){
-            const response = await axios.get(`/notes/${req.params.id}`, {
+        if( match.params.id ){
+            const response = await axios.get(`/notes/${match.params.id}`, {
                 headers: { Authorization: token }
             })
             setCreate({
@@ -49,7 +49,7 @@ export default function Edit({ req }) {
         }
     }
     getNote();
-  }, [ req.params.id ])
+  }, [match.params.id])
 
   const onChangeVal = (e) => {
     const name = e.target.name;

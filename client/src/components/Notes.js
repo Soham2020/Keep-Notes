@@ -18,7 +18,7 @@ export default function Notes ({ setIsLogin }) {
                 <Switch>
                     <Route exact path ="/" component={Home} />
                     <Route exact path="/creation" component={Creation} />
-                    <Route exact path="/edit" component={Edit} />
+                    <Route exact path="/edit/:id" component={Edit} />
                 </Switch>
             </Router>
         </>
