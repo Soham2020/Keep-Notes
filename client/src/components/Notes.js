@@ -9,6 +9,7 @@ import {
 import Home from './NotesComponent/Home';
 import Creation from './NotesComponent/Creation';
 import Edit from './NotesComponent/Edit';
+import Footer from './FooterComponent/Footer';
 
 export default function Notes ({ setIsLogin }) {
     return(
@@ -20,6 +21,7 @@ export default function Notes ({ setIsLogin }) {
                     <Route exact path="/creation" component={Creation} />
                     <Route exact path="/edit/:id" component={Edit} />
                 </Switch>
+                <Footer />
             </Router>
         </>
     )
