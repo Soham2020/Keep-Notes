@@ -81,7 +81,7 @@ export default function Home () {
                             <Typography variant="subtitle2">Content:</Typography>
                             <Typography paragraph variant="h6">{note.content}</Typography>
                             <DeleteIcon color="primary" fontSize="default" style={{ marginTop: "20px", 
-                            marginRight: "13rem"}} onClick={() => {
+                            marginRight: "13rem", cursor: "pointer"}} onClick={() => {
                                 deleteNote(note._id)
                             }}></DeleteIcon>
                         </CardContent>

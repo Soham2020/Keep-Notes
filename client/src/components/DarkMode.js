@@ -16,7 +16,7 @@ export default function DarkMode() {
         <>
             <ThemeProvider theme={theme}>
                 <CssBaseline>
-                    <Brightness4Icon style={{ color: "black" }} onClick={handleDarkMode} value={darkMode} fontSize="large" />
+                    <Brightness4Icon style={{ color: "black", cursor: "pointer" }} onClick={handleDarkMode} value={darkMode} fontSize="large" />
                 </CssBaseline>
             </ThemeProvider>
         </>

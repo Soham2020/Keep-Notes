@@ -19,6 +19,7 @@ export default function Footer() {
         color="default" 
         href="https://www.linkedin.com/feed/" 
         startIcon={<LinkedInIcon />}
+        style={{ cursor: "pointer" }}
         ></Button>
         <Button 
         variant="link" 
