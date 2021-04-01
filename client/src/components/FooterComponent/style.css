@@ -1,12 +1,11 @@
 .footer {
-    margin-top: 1rem;
-    /* padding: 1rem; */
-    background-color: rgb(233, 182, 17);
+    padding: 0.5rem;
+    background-color: #40DFE9;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     text-align: center;
-    color: aliceblue;
+    color: rgb(20, 19, 19);
   }
   
