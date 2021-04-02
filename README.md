@@ -42,3 +42,5 @@ npm i
 
 # LICENSE
 This project is under <a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a>. Copyright (c) 2021 Soham Das
+
+A :star: will keep me motivating.
