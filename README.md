@@ -25,18 +25,27 @@ It is simple MERN Stack Crud Operations Web-App, which takes our daily important
 
 **2.** Clone the project
 
-
+<pre>
 git clone https://github.com/<your_username>/Keep-Notes.git
-
+</pre>
 
 **3.** Go to the project folder
 
+<pre>
 cd Keep-Notes
+</pre>
 
 **4.** Install the dependencies
 
+<pre>
 npm i
+</pre>
 
+**5.** Run
+
+<pre>
+npm run dev
+</pre>
 
 <br/>
 
