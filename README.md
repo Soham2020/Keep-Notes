@@ -1,5 +1,4 @@
 # Keep Notes
-It is simple MERN Stack Crud Operations Web-App, which takes our daily important notes. 
 
 <br/>
 
